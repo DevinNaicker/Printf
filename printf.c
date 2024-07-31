@@ -1,6 +1,7 @@
 #include "main.h"
 #include <unistd.h>
 #include <stdarg.h>
+#include <stdio.h>
 
 /**
  * _printf - produces output according to a format.
@@ -23,75 +24,68 @@ int _printf(const char *format, ...)
     while (format && format[i])
     {
         if (format[i] == '%')
-        {
+       	{
             i++;
             if (format[i] == '\0')
-            {
+	    {
                 va_end(args);
                 return (-1);
             }
 
             switch (format[i])
-            {
+	    {
                 case 'c':
                     _putchar(va_arg(args, int));
                     count++;
                     break;
-                case 's':
-                    {
-                        char *str = va_arg(args, char *);
-
-                        if (str)
-                        {
-                            while (*str)
-                            {
-                                _putchar(*str++);
-                                count++;
-                            }
-                        }
-
-                        else
-                        {
-                            char *null_str = "(null)";
-
-                            while (*null_str)
-                            {
-                                _putchar(*null_str++);
-                                count++;
-                            }
-                        }
-                        break;
-		    }
-		case 'd':
-                case 'i':
+                
+		case 's': 
 		    {
-                    int num = va_arg(args, int);
+                    char *str = va_arg(args, char *);
+                    if (str) 
+		    {
+                        while (*str) 
+			{
+                            _putchar(*str++);
+                            count++;
+                        }
+                    }
 
-                    print_number(num);
-
-                    if (num < 0) {
-                        count += snprintf(NULL, 0, "%d", num);
-                    } else {
-                        count += snprintf(NULL, 0, "%d", num);
+		    else 
+		    {
+                        char *null_str = "(null)";
+			while (*null_str) 
+			{
+                            _putchar(*null_str++);
+                            count++;
+                        }
                     }
                     break;
                 }
 
-                case '%':
+                case 'd':
+                case 'i':
+			{
+                    int num = va_arg(args, int);
+                    count += print_number(num);
+                    break;
+			}
+                
+		case '%':
                     _putchar('%');
                     count++;
                     break;
-
-                default:
+                
+		default:
                     _putchar('%');
                     _putchar(format[i]);
                     count += 2;
                     break;
             }
         }
-
-        else
-        {
+       
+	else
+       	{
             _putchar(format[i]);
             count++;
         }
@@ -100,4 +94,4 @@ int _printf(const char *format, ...)
 
     va_end(args);
     return (count);
-}
+}      
