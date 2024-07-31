@@ -22,7 +22,6 @@ convert;
 
 int _putchar(char c);
 int _printf(const char *format, ...);
-int print_binary(va_list val);
 void print_number(int n);
 /*int print_binary(va_list val);*/
 int print_binary(unsigned int n);
