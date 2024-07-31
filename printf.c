@@ -29,7 +29,7 @@ void print_str(char *str, int *count)
 	else
 	{
 		char *null_str = "(null)";
-		
+
 		while (*null_str)
 		{
 			_putchar(*null_str++);
@@ -38,13 +38,13 @@ void print_str(char *str, int *count)
 	}
 }
 
-int handle_format(const char *format, va_list args, int *count, unsigned int *i)
+int hndl_format(const char *format, va_list args, int *count, unsigned int *i)
 {
 	(*i)++;
 
 	if (format[*i] == '\0')
 	{
-		return -1;
+		return (-1);
 	}
 
 	switch (format[*i])
@@ -52,7 +52,7 @@ int handle_format(const char *format, va_list args, int *count, unsigned int *i)
 		case 'c':
 			print_char(va_arg(args, int), count);
 			break;
-		
+
 		case 's':
 			print_str(va_arg(args, char *), count);
 			break;
@@ -67,7 +67,7 @@ int handle_format(const char *format, va_list args, int *count, unsigned int *i)
 			break;
 	}
 
-	return 0;
+	return (0);
 }
 
 int _printf(const char *format, ...)
@@ -85,7 +85,7 @@ int _printf(const char *format, ...)
 	{
 		if (format[i] == '%')
 		{
-			if (handle_format(format, args, &count, &i) == -1)
+			if (hndl_format(format, args, &count, &i) == -1)
 			{
 				va_end(args);
 				return (-1);
