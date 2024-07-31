@@ -22,5 +22,7 @@ convert;
 
 int _putchar(char c);
 int _printf(const char *format, ...);
+int print_binary(va_list val);
+int main(void);
 
 #endif /*MAIN_H*/
