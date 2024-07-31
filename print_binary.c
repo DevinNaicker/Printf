@@ -1,33 +1,34 @@
 #include "main.h"
 
 /**
- * print_binary - prints the binary representation of an unsigned int.
- * @val: the argument list containing the unsigned int to print.
- *
- * Return: the number of characters printed.
+ * print_binary - prints binary number.
+ * @val: parameter.
+ * Return: integer
  */
 int print_binary(va_list val)
 {
-unsigned int num = va_arg(val, unsigned int);
-int bit;
+int sign = 0;
 int count = 0;
-int leading_zero = 1;
+int i, a = 1, b;
+unsigned int num = va_arg(val, unsigned int);
+unsigned int v;
 
-for (int i = 31; i >= 0; i--)
+for (i = 0; i < 32; i++)
 {
-bit = (num >> i) & 1;
-if (bit)
-leading_zero = 0;
-if (!leading_zero)
+v = ((a << (31 - i)) & num);
+if (v >> (31 - i))
+sign = 1;
+if (sign)
 {
-_putchar(bit + '0');
+b = v >> (31 - i);
+_putchar(b + 48);
 count++;
 }
 }
 if (count == 0)
 {
-_putchar('0');
 count++;
+_putchar('0');
 }
 return (count);
 }
