@@ -1,4 +1,3 @@
-#include "main.h"
 #include "_putchar.h"
 #include <unistd.h>
 #include <stdarg.h>
