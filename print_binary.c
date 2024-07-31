@@ -1,4 +1,3 @@
-#include "main.h"
 #include "_putchar.h"
 #include <stdarg.h>
 #include <stdio.h>
@@ -15,13 +14,13 @@ int count = 0;
 
 if (n == 0)
 {
-_putchar('0');
+putchar('0');
 return (1);
 }
 
 while (n > 0)
 {
-_putchar((n & 1) + '0');
+putchar((n & 1) + '0');
 n >>= 1;
 count++;
 }
@@ -55,15 +54,15 @@ case 'b':
 count += print_binary(va_arg(args, unsigned int));
 break;
 default:
-_putchar('%');
-_putchar(format[i]);
+putchar('%');
+putchar(format[i]);
 count += 2;
 break;
 }
 }
 else
 {
-_putchar(format[i]);
+putchar(format[i]);
 count++;
 }
 }
