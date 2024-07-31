@@ -7,28 +7,27 @@
  */
 int print_binary(va_list val)
 {
-int sign = 0;
 int count = 0;
-int i, a = 1, b;
 unsigned int num = va_arg(val, unsigned int);
-unsigned int v;
 
-for (i = 0; i < 32; i++)
+if (num == 0)
 {
-v = ((a << (31 - i)) & num);
-if (v >> (31 - i))
-sign = 1;
-if (sign)
+_putchar('0');
+return (1);
+}
+
+for (int i = sizeof(num) * 8 - 1; i >= 0; i--)
 {
-b = v >> (31 - i);
-_putchar(b + 48);
+if (num & (1 << i))
+{
+_putchar('1');
 count++;
 }
-}
-if (count == 0)
+else
 {
-count++;
 _putchar('0');
 }
+}
+
 return (count);
 }
