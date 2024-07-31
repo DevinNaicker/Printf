@@ -40,6 +40,7 @@ int _printf(const char *format, ...)
 				case 's':
 					{
 						char *str = va_arg(args, char *);
+
 						if (str)
 						{
 							while (*str)
@@ -52,6 +53,7 @@ int _printf(const char *format, ...)
 						else
 						{
 							char *null_str = "(null)";
+
 							while (*null_str)
 							{
 								_putchar(*null_str++);
@@ -60,12 +62,12 @@ int _printf(const char *format, ...)
 						}
 						break;
 					}
-				
+
 				case '%':
 					_putchar('%');
 					count++;
 					break;
-				
+
 				default:
 					_putchar('%');
 					_putchar(format[i]);
