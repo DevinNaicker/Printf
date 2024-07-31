@@ -7,6 +7,7 @@
  */
 int main(void)
 {
-_printf("%b\n", 98);
+_printf("Binary of %d is: %b\n", 5, 5);
+_printf("Binary of %d is: %b\n", 1024, 1024);
 return (0);
 }
