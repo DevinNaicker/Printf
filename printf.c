@@ -2,6 +2,13 @@
 #include <unistd.h>
 #include <stdarg.h>
 
+/**
+ * _printf - produces output according to a format.
+ * @format: input string.
+ *
+ * Return: number of chars printed.
+ */
+
 int _printf(const char *format, ...)
 {
 	unsigned int i = 0;
