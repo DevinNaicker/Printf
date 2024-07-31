@@ -61,7 +61,21 @@ int _printf(const char *format, ...)
                             }
                         }
                         break;
+		    }
+		case 'd':
+                case 'i':
+		    {
+                    int num = va_arg(args, int);
+
+                    print_number(num);
+
+                    if (num < 0) {
+                        count += snprintf(NULL, 0, "%d", num);
+                    } else {
+                        count += snprintf(NULL, 0, "%d", num);
                     }
+                    break;
+                }
 
                 case '%':
                     _putchar('%');
