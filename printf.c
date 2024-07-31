@@ -60,7 +60,7 @@ int handle_format(const char *format, va_list args, int *count, unsigned int *i)
         default:
             print_char('%', count);
             print_char(format[*i], count);
-            (*count)++; // The unknown format specifier counts as 1 char
+            (*count)++;
             break;
     }
     return 0;
