@@ -1,5 +1,5 @@
-#ifndef MAIN.h
-#define MAIN.h
+#ifndef MAIN_H
+#define MAIN_H
 #include <limits.h>
 #include <stdio.h>
 #include <stdlib.h>
@@ -23,4 +23,4 @@ convert;
 int _putchar(char c);
 int _printf(const char *format, ...);
 
-#endif
+#endif /*MAIN_H*/
