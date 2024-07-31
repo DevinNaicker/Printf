@@ -9,11 +9,18 @@
  * Return nothing
  */
 
-void print_number(int n) 
+void print_number(int n)
 {
     char buffer[12];
     int i = 0;
     int is_negative = 0;
+
+    if (n == -2147483648)
+    {
+        print_number(-214748364);
+        putchar('8');
+        return;
+    }
 
     if (n == 0)
     {
