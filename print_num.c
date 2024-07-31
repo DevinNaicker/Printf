@@ -3,10 +3,10 @@
 #include <stdarg.h>
 
 /**
- * print_num - prints a number for the printf function.
+ * print_number - prints a number for the printf function.
  * @n: the number to print
  *
- * Return nothing
+ * Return: count or 1 if n is 0
  */
 
 int print_number(int n)
