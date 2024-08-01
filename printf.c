@@ -43,15 +43,12 @@ case 's':
 {
 char *str = va_arg(args, char *);
 if (str)
-{
-while (*str)
+{while (*str)
 {
 _putchar(*str++);
 count++;
 }
-}
-else
-{
+}else{
 char *null_str = "(null)";
 while (*null_str)
 {
